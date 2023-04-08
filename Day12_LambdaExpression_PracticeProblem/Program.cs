@@ -14,7 +14,8 @@ namespace Day12_LambdaExpression_PracticeProblem
             Console.WriteLine("Select any one option \n 1. add data to add Student\n" +
                 " 2. Retrieve all record from the list for age between 12 to 18 using linq.\n" +
                 " 3. Sort students data in descending order based on TotalMarks.\n" +
-                " 4. Display all the student records in each address.");
+                " 4. Display all the student records in each address.\n" +
+                " 5. Fetch first three students records.");
             int option = Convert.ToInt32(Console.ReadLine());
             
             switch (option)
@@ -45,6 +46,12 @@ namespace Day12_LambdaExpression_PracticeProblem
                         Console.WriteLine("-----------------------");
                         StudentRepo.DisplayStudent(group.ToList());
                     }
+                    break;
+
+                case 5:
+                    List<Student> students4 = StudentRepo.AddStudent();
+                    List<Student> TopThreeStudent = students4.Take(3).ToList();
+                    StudentRepo.DisplayStudent(TopThreeStudent);
                     break;
 
 
