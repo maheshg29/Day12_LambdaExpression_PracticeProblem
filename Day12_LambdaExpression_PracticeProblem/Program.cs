@@ -12,7 +12,8 @@ namespace Day12_LambdaExpression_PracticeProblem
         {
             Console.WriteLine("Welcome to Day 12 Practice Problem on Lambda Expression");
             Console.WriteLine("Select any one option \n 1. add data to add Student\n" +
-                " 2. Retrieve all record from the list for age between 12 to 18 using linq.");
+                " 2. Retrieve all record from the list for age between 12 to 18 using linq.\n" +
+                " 3. Sort students data in descending order based on TotalMarks.");
             int option = Convert.ToInt32(Console.ReadLine());
             
             switch (option)
@@ -28,6 +29,13 @@ namespace Day12_LambdaExpression_PracticeProblem
                     StudentRepo.DisplayStudent(selectedStudent);
                     break;
 
+                case 3:
+                    List<Student> students2 = StudentRepo.AddStudent();
+                    List<Student> OrderbyStudent = students2.OrderByDescending(s => s.Mark).ToList(); ;
+                    StudentRepo.DisplayStudent(OrderbyStudent);
+                    break;
+
+                   
                 default:
                     Console.WriteLine("Please select correct number");
                     break;

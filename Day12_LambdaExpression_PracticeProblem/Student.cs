@@ -13,6 +13,7 @@ namespace Day12_LambdaExpression_PracticeProblem
         public long PhoneNumber { get; set; }
         public string Address { get; set; }
         public int Age { get; set; }
+        public int Mark { get; set; }
         
     }
 }
