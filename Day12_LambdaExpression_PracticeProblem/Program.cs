@@ -35,7 +35,18 @@ namespace Day12_LambdaExpression_PracticeProblem
                     StudentRepo.DisplayStudent(OrderbyStudent);
                     break;
 
-                   
+                case 4:
+                    List<Student> students3 = StudentRepo.AddStudent();
+                    var GroupByAddress = students3.GroupBy(s => s.Address).ToList();
+                    foreach (var group in GroupByAddress)
+                    {
+                        Console.WriteLine("Students with Age: " + group.Key);
+                        Console.WriteLine("-----------------------");
+                        StudentRepo.DisplayStudent(group.ToList());
+                    }
+                    break;
+
+
                 default:
                     Console.WriteLine("Please select correct number");
                     break;
