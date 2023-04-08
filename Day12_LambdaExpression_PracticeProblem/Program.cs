@@ -13,7 +13,8 @@ namespace Day12_LambdaExpression_PracticeProblem
             Console.WriteLine("Welcome to Day 12 Practice Problem on Lambda Expression");
             Console.WriteLine("Select any one option \n 1. add data to add Student\n" +
                 " 2. Retrieve all record from the list for age between 12 to 18 using linq.\n" +
-                " 3. Sort students data in descending order based on TotalMarks.");
+                " 3. Sort students data in descending order based on TotalMarks.\n" +
+                " 4. Display all the student records in each address.");
             int option = Convert.ToInt32(Console.ReadLine());
             
             switch (option)
