@@ -11,30 +11,25 @@ namespace Day12_LambdaExpression_PracticeProblem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Day 12 Practice Problem on Lambda Expression");
-            Console.WriteLine("Select any one option \n 1. add data to add Student");
+            Console.WriteLine("Select any one option \n 1. add data to add Student\n" +
+                " 2. Retrieve all record from the list for age between 12 to 18 using linq.");
             int option = Convert.ToInt32(Console.ReadLine());
+            
             switch (option)
             {
                 case 1:
-                    List<Student> students = new List<Student>();
-                   
-                    students.Add(new Student { Id=1,Name="Mahesh",PhoneNumber=9874561232,Address="Mumbai",Age=30});
-                    students.Add(new Student { Id = 2, Name = "Akshay", PhoneNumber = 9874786413, Address = "Mumbai", Age = 25 });
-                    students.Add(new Student { Id = 3, Name = "Rajesh", PhoneNumber = 7898456512, Address = "Nashik", Age = 45 });
-                    students.Add(new Student { Id = 4, Name = "Gaurav", PhoneNumber = 8882224567, Address = "Nagpur", Age = 30 });
+                    List<Student> students =StudentRepo.AddStudent();
+                    StudentRepo.DisplayStudent(students);
+                    break;
 
-                    foreach (Student student in students)
-                    {
-                        Console.WriteLine("ID: " + student.Id);
-                        Console.WriteLine("Name: " + student.Name);
-                        Console.WriteLine("Phone Number: " + student.PhoneNumber);
-                        Console.WriteLine("Address: " + student.Address);
-                        Console.WriteLine("Age: " + student.Age);
-                        Console.WriteLine();
-                    }
+                case 2:
+                    List<Student> students1 = StudentRepo.AddStudent();
+                    List<Student> selectedStudent = students1.Where(s => s.Age >= 12 && s.Age <= 18).ToList();
+                    StudentRepo.DisplayStudent(selectedStudent);
                     break;
 
                 default:
+                    Console.WriteLine("Please select correct number");
                     break;
             }
         }
