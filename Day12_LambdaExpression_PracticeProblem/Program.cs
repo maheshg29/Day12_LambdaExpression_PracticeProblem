@@ -15,7 +15,8 @@ namespace Day12_LambdaExpression_PracticeProblem
                 " 2. Retrieve all record from the list for age between 12 to 18 using linq.\n" +
                 " 3. Sort students data in descending order based on TotalMarks.\n" +
                 " 4. Display all the student records in each address.\n" +
-                " 5. Fetch first three students records.");
+                " 5. Fetch first three students records.\n" +
+                " 6. Search particular student based on name.");
             int option = Convert.ToInt32(Console.ReadLine());
             
             switch (option)
@@ -52,6 +53,19 @@ namespace Day12_LambdaExpression_PracticeProblem
                     List<Student> students4 = StudentRepo.AddStudent();
                     List<Student> TopThreeStudent = students4.Take(3).ToList();
                     StudentRepo.DisplayStudent(TopThreeStudent);
+                    break;
+
+                case 6:
+                    List<Student> students5 = StudentRepo.AddStudent();
+                    string checkName = "Mahesh";
+                    Student FindStudent = students5.FirstOrDefault(s => s.Name.Equals(checkName));
+                    Console.WriteLine("ID: " + FindStudent.Id);
+                    Console.WriteLine("Name: " + FindStudent.Name);
+                    Console.WriteLine("Phone Number: " + FindStudent.PhoneNumber);
+                    Console.WriteLine("Address: " + FindStudent.Address);
+                    Console.WriteLine("Age: " + FindStudent.Age);
+                    Console.WriteLine("Mark: " + FindStudent.Mark);
+                    Console.WriteLine();
                     break;
 
 
